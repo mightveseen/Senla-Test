@@ -9,7 +9,7 @@ import java.util.Scanner;
 /** Task 1 */
 public class CheckVariable implements iCheckVariable {
     /** Variables: */
-    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m", SET_ERROR_COLOR = "\u001b[31m";
+    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m";
     /** Check Composite or Prime */
     private String isCompositeVariable(Integer bufMainVariable) {
         BigInteger mainVariable = BigInteger.valueOf(bufMainVariable);
@@ -34,7 +34,7 @@ public class CheckVariable implements iCheckVariable {
                     SET_MENU_COLOR, isCompositeVariable(mainVariable), RESET_MENU_COLOR,
                     SET_MENU_COLOR, isOddVariable(mainVariable), RESET_MENU_COLOR);
         } catch (InputMismatchException e) {
-            System.out.printf("%sYou entered wrong data%s\n", SET_ERROR_COLOR, RESET_MENU_COLOR);
+            System.err.printf("You entered wrong data\n");
         }
     }
 }

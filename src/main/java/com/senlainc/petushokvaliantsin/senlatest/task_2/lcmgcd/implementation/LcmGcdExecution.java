@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class LcmGcdExecution implements iLcmGcdExecution {
     /** Variables: */
     private String[] mainVariables = new String[2];
-    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m", SET_ERROR_COLOR = "\u001b[31m";
+    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m";
     /** Find Greatest Common Divisor */
     private int gcdExecute(int firstVariable, int secondVariable) {
         return secondVariable == 0 ? firstVariable : gcdExecute(secondVariable, firstVariable % secondVariable);
@@ -26,7 +26,7 @@ public class LcmGcdExecution implements iLcmGcdExecution {
                     SET_MENU_COLOR, gcdExecute(Integer.parseInt(mainVariables[0]), Integer.parseInt(mainVariables[1])), RESET_MENU_COLOR,
                     SET_MENU_COLOR, lcmExecute(Integer.parseInt(mainVariables[0]), Integer.parseInt(mainVariables[1])), RESET_MENU_COLOR);
         } catch (NumberFormatException e) {
-            System.out.printf("%sYou entered wrong data%s\n", SET_ERROR_COLOR, RESET_MENU_COLOR);
+            System.err.printf("You entered wrong data\n");
         }
     }
 }

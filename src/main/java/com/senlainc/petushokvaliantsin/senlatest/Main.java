@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Main
 {
     /** Variables */
-    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m", SET_ERROR_COLOR = "\u001b[31m";
+    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m";
     /** Enum */
     enum Menu {
         TASK_1("Task 1 - Check variable"),
@@ -64,9 +64,9 @@ public class Main
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.printf("%sYou entered wrong data%s\n", SET_ERROR_COLOR, RESET_MENU_COLOR);
+                System.err.printf("You entered wrong data\n");
             } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.printf("%sThe selected operation does not exist. Choose operation 1 - %d%s\n", SET_ERROR_COLOR, enumMenu.length, RESET_MENU_COLOR);
+                System.err.printf("The selected operation does not exist. Choose operation 1 - %d\n", enumMenu.length);
             }
         }
     }

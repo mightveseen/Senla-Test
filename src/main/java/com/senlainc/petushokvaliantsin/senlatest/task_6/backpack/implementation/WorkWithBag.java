@@ -12,7 +12,7 @@ public class WorkWithBag implements iWorkWithBag {
     private ArrayList<Stuff> mainStuffList = new ArrayList<>(); /* ArrayList of stuff */
     private LinkedList<Float> mainUnitCostMap = new LinkedList<>(); /* HashMap for find unit cost */
     private Backpack mainBackpack = new Backpack(maxWeight); /* Main backpack */
-    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m", SET_ERROR_COLOR = "\u001b[31m";
+    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m";
     /** Create Stuff */
     private void creatStuff() {
         mainStuffList.add(new Stuff("Gold", 4, 100));
@@ -52,7 +52,7 @@ public class WorkWithBag implements iWorkWithBag {
         try {
             creatStuff(); findUnitCost(); fillBackpack(); displayBackpack();
         } catch (NullPointerException e) {
-            System.out.printf("%sSomething went wrong%s\n", SET_ERROR_COLOR, RESET_MENU_COLOR);
+            System.err.printf("Something went wrong\n");
         }
     }
 }

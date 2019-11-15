@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 public class WorkWithSequence implements iWorkWithSequence {
     /** Variables: */
     private int mainSequence[];
-    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m", SET_ERROR_COLOR = "\u001b[31m";
+    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m";
     /** Fill array with N elements */
     private void fillArray(int bufSizeSequence) {
         if (bufSizeSequence <= 100 && bufSizeSequence > 0) {
@@ -42,7 +42,7 @@ public class WorkWithSequence implements iWorkWithSequence {
                 findPalindrome(mainSequence[i]);
             }
         } catch (InputMismatchException e) {
-            System.out.printf("%sYou entered wrong data%s\n", SET_ERROR_COLOR, RESET_MENU_COLOR);
+            System.err.printf("You entered wrong data\n");
         }
     }
 }

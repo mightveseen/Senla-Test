@@ -8,7 +8,7 @@ import java.util.*;
 public class WorkWithSentence implements iWorkWithSentence {
     /** Variables */
     private LinkedList<String> mainString = new LinkedList<>();
-    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m", SET_ERROR_COLOR = "\u001b[31m";
+    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m";
     /** Make first char UpperCase */
     private void firstChar() {
         for(int i = 0; i < mainString.size(); i++) {
@@ -37,7 +37,7 @@ public class WorkWithSentence implements iWorkWithSentence {
             System.out.printf("Your changed sentence: %s'%s'%s\nWord counter: %s'%d'%s\n",  SET_MENU_COLOR, displayLinkedList(), RESET_MENU_COLOR,
                     SET_MENU_COLOR, mainString.size(), RESET_MENU_COLOR);
         } catch (NumberFormatException e) {
-            System.out.printf("%sYou entered wrong data%s\n", SET_ERROR_COLOR, RESET_MENU_COLOR);
+            System.err.printf("You entered wrong data\n");
         }
     }
 }

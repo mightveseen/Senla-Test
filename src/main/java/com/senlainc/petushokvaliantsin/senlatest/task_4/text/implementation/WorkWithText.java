@@ -8,7 +8,7 @@ public class WorkWithText implements iWorkWithText {
     /** Variables: */
     private ArrayList<String> mainText = new ArrayList<>();
     private Map<String, Integer> checkRepeatText = new LinkedHashMap<>();
-    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m", SET_ERROR_COLOR = "\u001b[31m";
+    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m";
     /** Read text */
     private void readText() {
         mainText.addAll(Arrays.asList(new Scanner(System.in).nextLine().split("[\\s.,;?!()—\\n]")));
@@ -36,7 +36,7 @@ public class WorkWithText implements iWorkWithText {
             System.out.printf("You entered word: %s'%s'%s repeat into text: %s%d[times]%s", SET_MENU_COLOR, bufCheckString, RESET_MENU_COLOR,
                     SET_MENU_COLOR, checkRepeatText.get(bufCheckString.toLowerCase()), RESET_MENU_COLOR);
         } catch (InputMismatchException e) {
-            System.out.printf("%sYou entered wrong data%s\n", SET_ERROR_COLOR, RESET_MENU_COLOR);
+            System.err.printf("You entered wrong data\n");
         }
     }
 }

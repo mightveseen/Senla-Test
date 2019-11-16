@@ -1,2 +1,12 @@
 # Project exclude paths
 /target/
+
+##############################
+## IntelliJ
+##############################
+out/
+.idea/
+.idea_modules/
+*.iml
+*.ipr
+*.iws

@@ -19,6 +19,6 @@ public class LcmGcdExecution implements ILcmGcdExecution {
     public String toString(String[] mainVariables) {
         return "You numbers: " + SET_MENU_COLOR + "'" + Arrays.asList(mainVariables) + "'" + RESET_MENU_COLOR +
                 ". GCD: " + SET_MENU_COLOR + "'" + gcdExecute(Integer.parseInt(mainVariables[0]), Integer.parseInt(mainVariables[1])) + "'" + RESET_MENU_COLOR +
-                " and LCM: " + SET_MENU_COLOR + "'" + lcmExecute(Integer.parseInt(mainVariables[0]), Integer.parseInt(mainVariables[1])) + "'" + RESET_MENU_COLOR;
+                " and LCM: " + SET_MENU_COLOR + "'" + lcmExecute(Integer.parseInt(mainVariables[0]), Integer.parseInt(mainVariables[1])) + "'\n" + RESET_MENU_COLOR;
     }
 }

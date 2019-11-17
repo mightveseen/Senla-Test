@@ -2,15 +2,10 @@ package com.senlainc.petushokvaliantsin.senlatest;
 
 import com.senlainc.petushokvaliantsin.senlatest.task_1.FirstTask;
 import com.senlainc.petushokvaliantsin.senlatest.task_2.SecondTask;
-import com.senlainc.petushokvaliantsin.senlatest.task_2.lcmgcd.implementation.LcmGcdExecution;
 import com.senlainc.petushokvaliantsin.senlatest.task_3.ThirdTask;
-import com.senlainc.petushokvaliantsin.senlatest.task_3.sentence.implementation.WorkWithSentence;
 import com.senlainc.petushokvaliantsin.senlatest.task_4.FourthTask;
-import com.senlainc.petushokvaliantsin.senlatest.task_4.text.implementation.WorkWithText;
 import com.senlainc.petushokvaliantsin.senlatest.task_5.FifthTask;
-import com.senlainc.petushokvaliantsin.senlatest.task_5.sequence.implementation.WorkWithSequence;
 import com.senlainc.petushokvaliantsin.senlatest.task_6.SixthTask;
-import com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.implementation.WorkWithBag;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

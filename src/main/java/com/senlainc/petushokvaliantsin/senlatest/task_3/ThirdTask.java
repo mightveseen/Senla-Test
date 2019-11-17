@@ -12,7 +12,7 @@ public class ThirdTask implements IThirdTask {
     public void runTask() {
         System.out.printf("%sTask 3%s\nPlease enter sentence: ", SET_MENU_COLOR, RESET_MENU_COLOR);
         String mainString = new Scanner(System.in).nextLine();
-        System.out.printf("Please enter separator. Example: [, .()/]. If you dont want enter separator write - none: ");
+        System.out.printf("Please enter separator. Example: %s[, .()/]%s. If you dont want enter separator write - %snone%s: ", SET_MENU_COLOR, RESET_MENU_COLOR, SET_MENU_COLOR, RESET_MENU_COLOR);
         String mainSeparator = new Scanner(System.in).nextLine();
         System.out.println(new WorkWithSentence().toString(mainString, mainSeparator));
     }

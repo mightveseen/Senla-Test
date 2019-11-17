@@ -11,6 +11,7 @@ public class SecondTask implements ISecondTask {
     @Override
     public void runTask() {
         System.out.printf("%sTask 2%s\nPlease enter 2 variables separating by space: ", SET_MENU_COLOR, RESET_MENU_COLOR);
-        System.out.println(new LcmGcdExecution().toString(new Scanner(System.in).nextLine().split(" ")));
+        String[] mainVariables = new Scanner(System.in).nextLine().split(" ");
+        System.out.println(new LcmGcdExecution().toString(mainVariables));
     }
 }

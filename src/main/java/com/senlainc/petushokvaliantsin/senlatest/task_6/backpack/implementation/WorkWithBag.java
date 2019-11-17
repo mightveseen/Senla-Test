@@ -1,58 +1,55 @@
 package com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.implementation;
 
-import com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.iWorkWithBag;
+import com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.IWorkWithBag;
 import com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.implementation.Backpack.Backpack;
 import com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.implementation.Stuff.Stuff;
 
 import java.util.*;
 
-public class WorkWithBag implements iWorkWithBag {
-    /** Variables */
-    private Integer maxWeight = 15; /* Max backpack weight */
-    private ArrayList<Stuff> mainStuffList = new ArrayList<>(); /* ArrayList of stuff */
-    private LinkedList<Float> mainUnitCostMap = new LinkedList<>(); /* HashMap for find unit cost */
-    private Backpack mainBackpack = new Backpack(maxWeight); /* Main backpack */
-    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m";
+public class WorkWithBag implements IWorkWithBag {
     /** Create Stuff */
-    private void creatStuff() {
+    private List<Stuff> creatStuff(List<Stuff> mainStuffList) {
         mainStuffList.add(new Stuff("Gold", 4, 100));
         mainStuffList.add(new Stuff("Potato", 14, 400));
         mainStuffList.add(new Stuff("MacBook", 4, 400));
+        return mainStuffList;
     }
     /** Find unit cost */
-    private void findUnitCost() {
+    private List<Float> findUnitCost(List<Stuff> mainStuffList, List<Float> mainUnitCostMap) {
         for(int i = 0; i < mainStuffList.size(); i++) {
             mainUnitCostMap.add(i, (float)mainStuffList.get(i).getCostStuff() / (float)mainStuffList.get(i).getWeightStuff());
         }
+        return mainUnitCostMap;
     }
     /** Fill backpack */
-    private void fillBackpack() {
+    private void fillBackpack(int maxWeight, List<Stuff> bufMainStuffList, List<Float> bufMainUnitCost, Backpack bufMainBackpack) {
         Integer fillMaxWeight = 0;
-        LinkedList<Stuff> bufStuffList = new LinkedList<>();
-        while(mainUnitCostMap.size() != 0) {
-            int bufListIndex = mainUnitCostMap.indexOf(Collections.max(mainUnitCostMap));
-            if(maxWeight > (fillMaxWeight + mainStuffList.get(bufListIndex).getWeightStuff())) {
-                fillMaxWeight += mainStuffList.get(bufListIndex).getWeightStuff();
-                bufStuffList.add(mainStuffList.get(bufListIndex));
+        List<Stuff> bufStuffList = new LinkedList<>();
+        while(bufMainUnitCost.size() != 0) {
+            int bufListIndex = bufMainUnitCost.indexOf(Collections.max(bufMainUnitCost));
+            if(maxWeight > (fillMaxWeight + bufMainStuffList.get(bufListIndex).getWeightStuff())) {
+                fillMaxWeight += bufMainStuffList.get(bufListIndex).getWeightStuff();
+                bufStuffList.add(bufMainStuffList.get(bufListIndex));
             }
-            mainUnitCostMap.remove(bufListIndex);
+            bufMainUnitCost.remove(bufListIndex);
         }
-        mainBackpack.setMainStuffList(bufStuffList);
+        bufMainBackpack.setMainStuffList(bufStuffList);
     }
     /** Display backpack */
-    private void displayBackpack() {
+    private void displayBackpack(Backpack bufMainBackpack) {
         System.out.printf("Backpack stuff:\n");
-        for(int i = 0; i < mainBackpack.getStuffListSize(); i++) {
-            System.out.println(mainBackpack.toString(i));
+        List<Stuff> bufStuffList = bufMainBackpack.getMainStuffList();
+        for(Stuff tmpStuff : bufStuffList) {
+            System.out.println(tmpStuff);
         }
     }
     /** Main method */
-    public void workWithBagMethod() {
-        System.out.printf("%sTask 6%s\n", SET_MENU_COLOR, RESET_MENU_COLOR);
-        try {
-            creatStuff(); findUnitCost(); fillBackpack(); displayBackpack();
-        } catch (NullPointerException e) {
-            System.err.printf("Something went wrong\n");
-        }
+    @Override
+    public void getResult(int maxWeight) {
+        List<Stuff> mainStuffList = new ArrayList<>(); /* ArrayList of stuff */
+        List<Float> mainUnitCost = new LinkedList<>(); /* HashMap for find unit cost */
+        Backpack mainBackpack = new Backpack(maxWeight); /* Main backpack */
+        fillBackpack(maxWeight, creatStuff(mainStuffList), findUnitCost(mainStuffList, mainUnitCost), mainBackpack);
+        displayBackpack(mainBackpack);
     }
 }

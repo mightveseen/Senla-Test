@@ -1,30 +1,29 @@
 package com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.implementation.Backpack;
 
 import com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.implementation.Stuff.Stuff;
-import com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.iBackpack;
+import com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.IBackpack;
 
-import java.util.LinkedList;
+import java.util.List;
 
-public class Backpack implements iBackpack {
+public class Backpack implements IBackpack {
     /** Variables */
     private Integer maxWeightBackpack;
-    private LinkedList<Stuff> mainStuffList;
+    private List<Stuff> mainStuffList;
     /** Constructor */
     public Backpack(Integer bufMaxWeightBackpack) {
         this.maxWeightBackpack = bufMaxWeightBackpack;
     }
-    /** Max weight getter */
+    /** Put stuff */
+    @Override
+    public void setMainStuffList(List bufStuffList) {
+        this.mainStuffList = bufStuffList;
+    }
+    @Override
     public Integer getStuffListSize() {
         return mainStuffList.size();
     }
-    /** Put stuff */
-    public void setMainStuffList(LinkedList bufStuffList) {
-        this.mainStuffList = bufStuffList;
-    }
-    /** Display List */
-    public String toString(int listIndex) {
-        return "Stuff name: " + mainStuffList.get(listIndex).getNameStuff() +
-                ", weight: " + mainStuffList.get(listIndex).getWeightStuff() +
-                ", cost: " + mainStuffList.get(listIndex).getCostStuff();
+    @Override
+    public List getMainStuffList() {
+        return mainStuffList;
     }
 }

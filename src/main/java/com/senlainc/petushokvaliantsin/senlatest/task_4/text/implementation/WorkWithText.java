@@ -1,13 +1,12 @@
 package com.senlainc.petushokvaliantsin.senlatest.task_4.text.implementation;
 
-import com.senlainc.petushokvaliantsin.senlatest.task_4.text.iWorkWithText;
+import com.senlainc.petushokvaliantsin.senlatest.task_4.text.IWorkWithText;
+import static com.senlainc.petushokvaliantsin.senlatest.Main.RESET_MENU_COLOR;
+import static com.senlainc.petushokvaliantsin.senlatest.Main.SET_MENU_COLOR;
 
 import java.util.*;
 
-public class WorkWithText implements iWorkWithText {
-    /** Variables: */
-    protected static final String SET_MENU_COLOR = "\u001b[33m";
-    protected static final String RESET_MENU_COLOR = "\u001b[0m";
+public class WorkWithText implements IWorkWithText {
     /** Read text */
     private List<String> readText(String bufString) {
         List<String> mainText = new ArrayList<>();

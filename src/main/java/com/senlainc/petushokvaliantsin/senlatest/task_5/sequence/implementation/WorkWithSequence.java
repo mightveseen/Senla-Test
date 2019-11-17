@@ -1,48 +1,31 @@
 package com.senlainc.petushokvaliantsin.senlatest.task_5.sequence.implementation;
 
-import com.senlainc.petushokvaliantsin.senlatest.task_5.sequence.iWorkWithSequence;
+import com.senlainc.petushokvaliantsin.senlatest.task_5.sequence.IWorkWithSequence;
 import static com.senlainc.petushokvaliantsin.senlatest.Main.RESET_MENU_COLOR;
 import static com.senlainc.petushokvaliantsin.senlatest.Main.SET_MENU_COLOR;
 
 import java.util.Arrays;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 import java.util.stream.IntStream;
 
-public class WorkWithSequence implements iWorkWithSequence {
-    private int mainSequence[];
+public class WorkWithSequence implements IWorkWithSequence {
     /** Fill array with N elements */
-    private void fillArray(int bufSizeSequence) {
-        if (bufSizeSequence <= 100 && bufSizeSequence > 0) {
-            mainSequence = IntStream.rangeClosed(01, bufSizeSequence).toArray();
-        } else {
-            System.out.printf("You entered: %s'%d'%s . You should entered variable less than 100 or more than 0\n", SET_MENU_COLOR, bufSizeSequence, RESET_MENU_COLOR);
-        }
+    private int[] fillArray(int bufSizeSequence) {
+        int mainSequence[] = IntStream.rangeClosed(01, bufSizeSequence).toArray();
+        return mainSequence;
     }
-    /** Find primitives */
-    private void findPalindrome(int bufArrayVariable) {
-        int reverseVariable = 0;
-        int staticArrayVariable = bufArrayVariable;
-        for (int i = 0; i <= bufArrayVariable; i++) {
-            int remainVariable = bufArrayVariable % 10;
-            bufArrayVariable = bufArrayVariable / 10;
-            reverseVariable = reverseVariable * 10 + remainVariable;
-        }
-        if (Arrays.binarySearch(mainSequence, reverseVariable) >= 0) {
-            System.out.printf("For variable: %s'%d'%s palindrome from sequence is %s'%d'%s\n", SET_MENU_COLOR, staticArrayVariable, RESET_MENU_COLOR,
-                    SET_MENU_COLOR, reverseVariable, RESET_MENU_COLOR);
-        }
+    /** Find palindrome */
+    private int findPalindrome(int bufArrayVariable) {
+        StringBuilder reverseVariable = new StringBuilder();
+        reverseVariable.append(bufArrayVariable);
+        return Integer.parseInt(reverseVariable.reverse().toString());
     }
-    /** Main method */
-    public void workWithSequenceMethod() {
-        System.out.printf("\n%sTask 5%s\nPlease enter size of sequence: ", SET_MENU_COLOR, RESET_MENU_COLOR);
-        try {
-            fillArray(new Scanner(System.in).nextInt());
-            for(int i = 0; i < mainSequence.length; i++) {
-                findPalindrome(mainSequence[i]);
-            }
-        } catch (InputMismatchException e) {
-            System.err.printf("You entered wrong data\n");
+    /** Return result */
+    @Override
+    public String toString(int bufSizeSequence, int bufArrayVariable) {
+        if (Arrays.binarySearch(fillArray(bufSizeSequence), findPalindrome(bufArrayVariable)) >= 0) {
+            return "For variable: " + SET_MENU_COLOR + "'" + bufArrayVariable + "'" + RESET_MENU_COLOR +
+                    " palindrome from sequence is " + SET_MENU_COLOR + "'" + findPalindrome(bufArrayVariable) + "'\n" + RESET_MENU_COLOR;
         }
+        return "";
     }
 }

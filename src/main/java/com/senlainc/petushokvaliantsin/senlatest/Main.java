@@ -7,7 +7,9 @@ import com.senlainc.petushokvaliantsin.senlatest.task_3.ThirdTask;
 import com.senlainc.petushokvaliantsin.senlatest.task_3.sentence.implementation.WorkWithSentence;
 import com.senlainc.petushokvaliantsin.senlatest.task_4.FourthTask;
 import com.senlainc.petushokvaliantsin.senlatest.task_4.text.implementation.WorkWithText;
+import com.senlainc.petushokvaliantsin.senlatest.task_5.FifthTask;
 import com.senlainc.petushokvaliantsin.senlatest.task_5.sequence.implementation.WorkWithSequence;
+import com.senlainc.petushokvaliantsin.senlatest.task_6.SixthTask;
 import com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.implementation.WorkWithBag;
 
 import java.util.InputMismatchException;
@@ -61,10 +63,10 @@ public class Main
                         new FourthTask().runTask();
                         break;
                     case TASK_5:
-                        new WorkWithSequence().workWithSequenceMethod();
+                        new FifthTask().runTask();
                         break;
                     case TASK_6:
-                        new WorkWithBag().workWithBagMethod();
+                        new SixthTask().runTask();
                         break;
                 }
             } catch (InputMismatchException e) {

@@ -1,15 +1,13 @@
 package com.senlainc.petushokvaliantsin.senlatest.task_1.checkvariable.implementation;
 
-import com.senlainc.petushokvaliantsin.senlatest.task_1.checkvariable.iCheckVariable;
+import com.senlainc.petushokvaliantsin.senlatest.task_1.checkvariable.ICheckVariable;
+import static com.senlainc.petushokvaliantsin.senlatest.Main.RESET_MENU_COLOR;
+import static com.senlainc.petushokvaliantsin.senlatest.Main.SET_MENU_COLOR;
 
 import java.math.BigInteger;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 /** Task 1 */
-public class CheckVariable implements iCheckVariable {
-    /** Variables: */
-    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m";
+public class CheckVariable implements ICheckVariable {
     /** Check Composite or Prime */
     private String isCompositeVariable(Integer bufMainVariable) {
         BigInteger mainVariable = BigInteger.valueOf(bufMainVariable);
@@ -25,16 +23,11 @@ public class CheckVariable implements iCheckVariable {
         }
         return "Odd";
     }
-    /** Main method */
-    public void checkVariableMethod() {
-        System.out.printf("%sTask 1%s\nPlease enter variable: ", SET_MENU_COLOR, RESET_MENU_COLOR);
-        try {
-            Integer mainVariable = new Scanner(System.in).nextInt();
-            System.out.printf("You number: %s'%d'%s. It is %s'%s'%s and %s'%s'%s variable\n", SET_MENU_COLOR, mainVariable, RESET_MENU_COLOR,
-                    SET_MENU_COLOR, isCompositeVariable(mainVariable), RESET_MENU_COLOR,
-                    SET_MENU_COLOR, isOddVariable(mainVariable), RESET_MENU_COLOR);
-        } catch (InputMismatchException e) {
-            System.err.printf("You entered wrong data\n");
-        }
+    /** Return result */
+    @Override
+    public String toString(Integer bufMainVariable) {
+        return "You number: " + SET_MENU_COLOR + "'" + bufMainVariable + "'" + RESET_MENU_COLOR + ". It is " +
+                SET_MENU_COLOR + "'" + isCompositeVariable(bufMainVariable) + "'" + RESET_MENU_COLOR + " and " +
+                SET_MENU_COLOR + "'" + isOddVariable(bufMainVariable) + "'" + RESET_MENU_COLOR + " variable\n";
     }
 }

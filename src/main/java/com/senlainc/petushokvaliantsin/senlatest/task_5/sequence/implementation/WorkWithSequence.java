@@ -1,6 +1,8 @@
 package com.senlainc.petushokvaliantsin.senlatest.task_5.sequence.implementation;
 
 import com.senlainc.petushokvaliantsin.senlatest.task_5.sequence.iWorkWithSequence;
+import static com.senlainc.petushokvaliantsin.senlatest.Main.RESET_MENU_COLOR;
+import static com.senlainc.petushokvaliantsin.senlatest.Main.SET_MENU_COLOR;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -8,9 +10,7 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 
 public class WorkWithSequence implements iWorkWithSequence {
-    /** Variables: */
     private int mainSequence[];
-    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m";
     /** Fill array with N elements */
     private void fillArray(int bufSizeSequence) {
         if (bufSizeSequence <= 100 && bufSizeSequence > 0) {

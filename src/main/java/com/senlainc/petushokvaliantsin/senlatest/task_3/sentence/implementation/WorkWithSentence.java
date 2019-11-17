@@ -1,27 +1,36 @@
 package com.senlainc.petushokvaliantsin.senlatest.task_3.sentence.implementation;
 
-import com.senlainc.petushokvaliantsin.senlatest.task_3.sentence.iWorkWithSentence;
+import com.senlainc.petushokvaliantsin.senlatest.task_3.sentence.IWorkWithSentence;
+import static com.senlainc.petushokvaliantsin.senlatest.Main.RESET_MENU_COLOR;
+import static com.senlainc.petushokvaliantsin.senlatest.Main.SET_MENU_COLOR;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
-public class WorkWithSentence implements iWorkWithSentence {
-    /** Variables */
-    private LinkedList<String> mainString = new LinkedList<>();
-    private static final String SET_MENU_COLOR = "\u001b[33m", RESET_MENU_COLOR = "\u001b[0m";
+public class WorkWithSentence implements IWorkWithSentence {
+    private List<String> mainString = new LinkedList<>();
+    /** Read string */
+    private void readSentence (String bufMainString, String bufSeparator) {
+        if (bufSeparator.equals("none")) {
+            mainString.addAll(Arrays.asList(bufMainString.split("\\s")));
+        } else {
+            mainString.addAll(Arrays.asList(bufMainString.split(bufSeparator)));
+        }
+    }
     /** Make first char UpperCase */
-    private void firstChar() {
+    private @NotNull String firstChar() {
         for(int i = 0; i < mainString.size(); i++) {
             mainString.set(i, mainString.get(i).substring(0, 1).toUpperCase() + mainString.get(i).substring(1));
         }
+        return sortSentence();
     }
     /** Sort words in sentence */
-    private void sortSentence() {
+    private @NotNull String sortSentence()  {
         Collections.sort(mainString);
+        return displaySentence();
     }
-    /** Display LinkedList */
-    @NotNull
-    private String displayLinkedList() {
+    /** Display sentence */
+    private @NotNull String displaySentence() {
         StringBuilder bufMainString = new StringBuilder();
         for(String tmpString : mainString) {
             bufMainString.append(tmpString + " ");
@@ -29,15 +38,12 @@ public class WorkWithSentence implements iWorkWithSentence {
         bufMainString.deleteCharAt(bufMainString.length() - 1);
         return bufMainString.toString();
     }
-    /** Main method */
-    public void workWithSentenceMethod() {
-        System.out.printf("%sTask 3%s\nPlease enter sentence: ", SET_MENU_COLOR, RESET_MENU_COLOR);
-        try {
-            mainString.addAll(Arrays.asList(new Scanner(System.in).nextLine().split("[\\s.]"))); firstChar(); sortSentence();
-            System.out.printf("Your changed sentence: %s'%s'%s\nWord counter: %s'%d'%s\n",  SET_MENU_COLOR, displayLinkedList(), RESET_MENU_COLOR,
-                    SET_MENU_COLOR, mainString.size(), RESET_MENU_COLOR);
-        } catch (NumberFormatException e) {
-            System.err.printf("You entered wrong data\n");
-        }
+    /** Return result */
+    public String toString(String bufMainString, String bufMainSeparator) {
+            readSentence(bufMainString, bufMainSeparator);
+            return "You entered sentence: " + SET_MENU_COLOR + "'" + displaySentence() + "'\n" + RESET_MENU_COLOR +
+            "Word counter: " + SET_MENU_COLOR + "'" + mainString.size() + "'\n" + RESET_MENU_COLOR +
+            "Sorted sentence: " + SET_MENU_COLOR + "'" + sortSentence() + "'\n" + RESET_MENU_COLOR +
+            "Changed sentence: " + SET_MENU_COLOR + "'" + firstChar() + "'\n" + RESET_MENU_COLOR;
     }
 }

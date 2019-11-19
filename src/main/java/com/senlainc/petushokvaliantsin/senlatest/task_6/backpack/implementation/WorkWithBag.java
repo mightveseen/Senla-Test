@@ -4,7 +4,10 @@ import com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.IWorkWithBag;
 import com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.implementation.Backpack.Backpack;
 import com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.implementation.Stuff.Stuff;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 public class WorkWithBag implements IWorkWithBag {
     /** Create Stuff */
@@ -37,7 +40,7 @@ public class WorkWithBag implements IWorkWithBag {
     }
     /** Display backpack */
     private void displayBackpack(Backpack bufMainBackpack) {
-        System.out.printf("Backpack stuff:\n");
+        System.out.print("Backpack stuff:\n");
         List<Stuff> bufStuffList = bufMainBackpack.getMainStuffList();
         for(Stuff tmpStuff : bufStuffList) {
             System.out.println(tmpStuff);

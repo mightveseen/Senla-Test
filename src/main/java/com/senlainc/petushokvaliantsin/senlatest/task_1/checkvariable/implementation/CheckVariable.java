@@ -1,10 +1,11 @@
 package com.senlainc.petushokvaliantsin.senlatest.task_1.checkvariable.implementation;
 
 import com.senlainc.petushokvaliantsin.senlatest.task_1.checkvariable.ICheckVariable;
-import static com.senlainc.petushokvaliantsin.senlatest.Main.RESET_MENU_COLOR;
-import static com.senlainc.petushokvaliantsin.senlatest.Main.SET_MENU_COLOR;
 
 import java.math.BigInteger;
+
+import static com.senlainc.petushokvaliantsin.senlatest.menu.Menu.RESET_MENU_COLOR;
+import static com.senlainc.petushokvaliantsin.senlatest.menu.Menu.SET_MENU_COLOR;
 
 /** Task 1 */
 public class CheckVariable implements ICheckVariable {

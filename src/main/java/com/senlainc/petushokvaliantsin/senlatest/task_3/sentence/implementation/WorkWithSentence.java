@@ -1,11 +1,15 @@
 package com.senlainc.petushokvaliantsin.senlatest.task_3.sentence.implementation;
 
 import com.senlainc.petushokvaliantsin.senlatest.task_3.sentence.IWorkWithSentence;
-import static com.senlainc.petushokvaliantsin.senlatest.Main.RESET_MENU_COLOR;
-import static com.senlainc.petushokvaliantsin.senlatest.Main.SET_MENU_COLOR;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+import static com.senlainc.petushokvaliantsin.senlatest.menu.Menu.RESET_MENU_COLOR;
+import static com.senlainc.petushokvaliantsin.senlatest.menu.Menu.SET_MENU_COLOR;
 
 public class WorkWithSentence implements IWorkWithSentence {
     private List<String> mainString = new LinkedList<>();
@@ -33,7 +37,7 @@ public class WorkWithSentence implements IWorkWithSentence {
     private @NotNull String displaySentence() {
         StringBuilder bufMainString = new StringBuilder();
         for(String tmpString : mainString) {
-            bufMainString.append(tmpString + " ");
+            bufMainString.append(tmpString).append(" ");
         }
         bufMainString.deleteCharAt(bufMainString.length() - 1);
         return bufMainString.toString();

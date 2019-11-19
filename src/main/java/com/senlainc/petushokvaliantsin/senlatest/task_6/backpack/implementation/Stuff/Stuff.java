@@ -1,8 +1,9 @@
 package com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.implementation.Stuff;
 
 import com.senlainc.petushokvaliantsin.senlatest.task_6.backpack.IStuff;
-import static com.senlainc.petushokvaliantsin.senlatest.Main.RESET_MENU_COLOR;
-import static com.senlainc.petushokvaliantsin.senlatest.Main.SET_MENU_COLOR;
+
+import static com.senlainc.petushokvaliantsin.senlatest.menu.Menu.RESET_MENU_COLOR;
+import static com.senlainc.petushokvaliantsin.senlatest.menu.Menu.SET_MENU_COLOR;
 
 public class Stuff implements IStuff {
     /** Variables */

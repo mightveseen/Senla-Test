@@ -2,10 +2,11 @@ package com.senlainc.petushokvaliantsin.senlatest.task_2;
 
 import com.senlainc.petushokvaliantsin.senlatest.task_2.lcmgcd.ISecondTask;
 import com.senlainc.petushokvaliantsin.senlatest.task_2.lcmgcd.implementation.LcmGcdExecution;
-import static com.senlainc.petushokvaliantsin.senlatest.Main.RESET_MENU_COLOR;
-import static com.senlainc.petushokvaliantsin.senlatest.Main.SET_MENU_COLOR;
 
 import java.util.Scanner;
+
+import static com.senlainc.petushokvaliantsin.senlatest.menu.Menu.RESET_MENU_COLOR;
+import static com.senlainc.petushokvaliantsin.senlatest.menu.Menu.SET_MENU_COLOR;
 
 public class SecondTask implements ISecondTask {
     @Override
